@@ -1,0 +1,33 @@
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.18;
+
+contract funcanderror {
+    address public owner;
+    uint public number;
+
+    constructor() {
+        owner = msg.sender;
+    }
+
+    // Function for setting a number using require
+    function settingnum(uint _numb) public {
+        require(_numb > 0, "Number is not greater than zero");
+        number = _numb;
+    }
+
+    // Function for assert
+    function assertfunc(uint y) public pure returns (uint) {
+        assert(y > 0);
+        return y;
+    }
+
+    // Function for revert
+    function revertfunc(uint z) public pure returns (uint) {
+        if (z == 0) {
+            revert("Input shuld not be zero");
+        }
+        return z;
+    }
+
+   
+}
